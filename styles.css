@@ -1,0 +1,82 @@
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background-color: #f0f0f0; /* Optional: Set a background color for the page */
+}
+
+.aspect-ratio-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh; /* Make the box full-screen */
+    background-image: url('Designer.jpg'); /* Replace with the image for the box */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 2; /* Ensure this is above the background */
+    box-shadow: none; /* Remove shadow since the box is now full screen */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px; /* Add padding inside the box */
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.logo {
+    width: 70%; /* Adjusted size of the logo for mobile screens */
+    max-width: 300px; /* Maximum width of the logo */
+    height: auto; /* Maintain aspect ratio */
+    z-index: 3; /* Ensure the logo is above the background */
+    margin-bottom: 20px; /* Space between the logo and the button */
+}
+
+.start-button {
+    padding: 15px 40px; /* Keep the larger padding for the button */
+    font-size: 1.2rem; /* Keep the larger font size for the button */
+    color: white;
+    background-color: #007bff; /* Button background color */
+    border: none;
+    border-radius: 20px; /* Curved corners for a rectangle shape */
+    cursor: pointer;
+    z-index: 4; /* Ensure the button is on top of all other elements */
+    margin-top: auto; /* Push the button to the bottom of the box */
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth transition for hover effects and jiggle */
+    position: relative;
+}
+
+/* Hover and Jiggle Effects */
+.start-button:hover {
+    background-color: #0056b3; /* Darker background color on hover */
+    transform: translateY(-5px) scale(1.05); /* Lift and slightly enlarge the button on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Add shadow effect on hover */
+}
+
+/* Jiggle Animation */
+@keyframes jiggle {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(-1px, 1px); /* Reduced jiggle amount */
+    }
+    50% {
+        transform: translate(1px, -1px);
+    }
+    75% {
+        transform: translate(-1px, -1px);
+    }
+}
+
+.start-button.jiggle {
+    animation: jiggle 0.2s infinite;
+}
